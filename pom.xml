@@ -43,9 +43,16 @@
 
 	<dependencies>
         <dependency>
-          <groupId>org.apache.felix</groupId>
-          <artifactId>org.osgi.core</artifactId>
-          <version>1.2.0</version>
+            <groupId>org.eclipse.osgi</groupId>
+            <artifactId>org.eclipse.osgi</artifactId>
+            <version>3.6.0.v20100517</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.equinox</groupId>
+            <artifactId>org.eclipse.equinox.registry</artifactId>
+            <version>3.5.0.v20100503</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>protege4</groupId>
@@ -108,22 +115,23 @@
               <extensions>true</extensions>
               <configuration>
                 <instructions>
-                  <Bundle-SymbolicName>org.protege.editor.core.application</Bundle-SymbolicName>
+                  <Bundle-SymbolicName>org.protege.editor.core.application;singleton:=true</Bundle-SymbolicName>
                   <Bundle-Vendor>The Protege Development Team</Bundle-Vendor>
                   <Export-Package>
                     org.protege.editor.core,
                     org.protege.editor.core.*
                   </Export-Package>
                   <Import-Package>
-                    org.protege.editor.core,
-                    org.protege.editor.core.*
+                      !junit.framework,!com.sun.*,
+                      org.eclipse.core.runtime;registry=split,
+                      *
                   </Import-Package>
                   <Embed-Dependency>
-                    org.protege.common
+                      mdock
                   </Embed-Dependency>
                   <Bundle-Activator>org.protege.editor.core.ProtegeApplication</Bundle-Activator>
                   <Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
-                  <Include-Resource>{maven-dependencies}</Include-Resource>
+                  <Include-Resource>plugin.xml,{maven-resources}</Include-Resource>
                 </instructions>
                 <executions>
                   <execution>
