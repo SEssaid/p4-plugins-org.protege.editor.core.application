@@ -88,8 +88,6 @@
 			<!-- The properties plugin might be used to define certain parameters
 			in a properties file. for demonstration purposes we did that to
 			demonstrate how to customize the output directory (s. "next" plugin) -->
-            <!-- there seems to be a problem checking out version.properties
-                 is this a temporary problem?
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 			    <artifactId>properties-maven-plugin</artifactId>
@@ -102,13 +100,12 @@
 						</goals>
 						<configuration>
 							<files>
-								<file>version.properties</file>
+								<file>resources/version.properties</file>
 							</files>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-            -->
 
             <plugin>
               <groupId>org.apache.felix</groupId>
@@ -133,7 +130,7 @@
                   </Embed-Dependency>
                   <Bundle-Activator>org.protege.editor.core.ProtegeApplication</Bundle-Activator>
                   <Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
-                  <Include-Resource>plugin.xml,{maven-resources}</Include-Resource>
+                  <Include-Resource>resources/plugin.xml,{maven-resources}</Include-Resource>
                 </instructions>
                 <executions>
                   <execution>
