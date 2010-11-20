@@ -1,0 +1,7 @@
+
+There is a seemingly known bug with hudson where its svn plugin does
+not retrieve svn:externals files.  I have made a test directory to see
+if we can fix this and in the mean time we will do nightly copies of
+plugin.xml and version.properties from trunk.
+
+There is also a bug with the properties plugin that is in progress.
