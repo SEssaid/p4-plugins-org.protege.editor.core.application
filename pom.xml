@@ -100,7 +100,7 @@
 						</goals>
 						<configuration>
 							<files>
-								<file>resources/version.properties</file>
+								<file>version.properties</file>
 							</files>
 						</configuration>
 					</execution>
@@ -130,7 +130,7 @@
                   </Embed-Dependency>
                   <Bundle-Activator>org.protege.editor.core.ProtegeApplication</Bundle-Activator>
                   <Bundle-ClassPath>.,{maven-dependencies}</Bundle-ClassPath>
-                  <Include-Resource>resources/plugin.xml,{maven-resources}</Include-Resource>
+                  <Include-Resource>plugin.xml,{maven-resources}</Include-Resource>
                 </instructions>
                 <executions>
                   <execution>
